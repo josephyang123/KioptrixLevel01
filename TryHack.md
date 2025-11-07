@@ -32,6 +32,7 @@ Target found
 ## In virtual network:
 
 `ip a` we are on network `10.0.36.0/24`
+
 <img src="./Screenshots/virtualIP.png" style="width:85%; max-width:8.5in;">
 
 `nmap 10.0.36.0/24` got us this. Target is `10.0.36.8` with port `22`,`80`,`111`,`139`,`443` and `32768` open
@@ -64,13 +65,14 @@ Target found
 Run this command`rpcinfo 10.0.36.8`
 
 <img src="./Screenshots/rpcinfo.png" style="width:85%; max-width:8.5in;">
----
 
 
-<img src="./Screenshots" style="width:85%; max-width:8.5in;">
 
 
----
+
+
+
+
 
 Try `smbclient -L 10.0.36.8`
 
@@ -82,3 +84,35 @@ Try `smbclient -L 10.0.36.8`
 <img src="./Screenshots/smbclientInsideTarget.png" style="width:85%; max-width:8.5in;">
 <img src="./Screenshots/insideSMB.png" style="width:85%; max-width:8.5in;">
 
+
+
+
+
+<img src="./Screenshots" style="width:85%; max-width:8.5in;">
+---
+## Video learning
+
+use `enum4linux 10.0.36.8` see some usernames on the machine, and also some more information
+
+<img src="./Screenshots/enum4linuxUsers.png" style="width:85%; max-width:8.5in;">
+
+use `dirb http://10.0.36.8` dirb is a web server directory and file enumeration tool. **Only for http**
+<img src="./Screenshots/dirbOnWebsite.png" style="width:85%; max-width:8.5in;">
+
+
+
+login to rpc `rpcclient -U "" 10.0.36.8`, cuz you see no password so you can connect to it 
+
+<img src="./Screenshots/rpcNoPassword.png" style="width:85%; max-width:8.5in;">
+
+
+<img src="./Screenshots/rpcLogin.png" style="width:85%; max-width:8.5in;">
+
+
+From `nmap -sV -A 10.0.36.8` see some services and their version
+
+<img src="./Screenshots/nmap-sV.png" style="width:85%; max-width:8.5in;">
+
+Search each exploit on ExploitDatabase
+
+<img src="./Screenshots/exploitData.png" style="width:85%; max-width:8.5in;">
